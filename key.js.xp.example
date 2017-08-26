@@ -1,0 +1,8 @@
+/** 
+ *  Get your API key here
+ *  https://darksky.net/dev/
+ */
+
+module.exports = {
+  darksky: '66813e2525c0e65025379ab7e8672c28'
+}
