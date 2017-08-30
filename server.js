@@ -45,7 +45,7 @@ app.get('/weather/v1/json', function (req, res) {
       res.send(error)
     })
 
-  console.log(req.method + ': /weather/v1/' + lat + '/' + lon + '/' + units)
+  // console.log(req.method + ': /weather/v1/' + lat + '/' + lon + '/' + units)
 })
 
 // Google Maps Geocoding API
@@ -73,7 +73,7 @@ app.get('/geocode/v1/json', function (req, res) {
         res.send(error)
       })
 
-    console.log(req.method + ': /geocode/v1/' + latlng)
+    // console.log(req.method + ': /geocode/v1/' + latlng)
   }
 
   if (address) {
@@ -85,7 +85,7 @@ app.get('/geocode/v1/json', function (req, res) {
         res.send(error)
       })
 
-    console.log(req.method + ': /geocode/v1/' + address)
+    // console.log(req.method + ': /geocode/v1/' + address)
   }
 })
 
