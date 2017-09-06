@@ -6,6 +6,7 @@ const keys = require('./.keys')
 const DarkSky = require('dark-sky')
 const NodeGeocoder = require('node-geocoder')
 const https = require('https'); // for https
+const http = require('http');
 const fs = require('fs'); // for https fs
 
 var options = {
@@ -100,4 +101,5 @@ app.get('/geocode/v1/json', function (req, res) {
 
 // app.listen(3000)
 https.createServer(options, app).listen(3000) // https
+http.createServer(options, app).listen(3000) // https
 console.log('API ready.')
