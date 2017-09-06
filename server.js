@@ -7,8 +7,8 @@ const DarkSky = require('dark-sky')
 const NodeGeocoder = require('node-geocoder')
 
 // const https = require('https'); // for https
-const http = require('http'); // for http
-const fs = require('fs'); // for https fs
+// const http = require('http'); // for http
+// const fs = require('fs'); // for https fs
 
 // var options = {
 //   // key: fs.readFileSync('/etc/letsencrypt/live/jasmin.engr.utk.edu/privkey.pem'),
@@ -102,9 +102,9 @@ app.get('/geocode/v1/json', function (req, res) {
   }
 })
 
-// app.listen(3000) // working
+app.listen(3000) // working
 
 // https.createServer(options, app).listen(3000) // https
-http.createServer(app).listen(3000) // http working
+// http.createServer(app).listen(3000) // http working
 
 console.log('API ready.')
