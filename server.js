@@ -102,7 +102,7 @@ app.get('/geocode/v1/json', function (req, res) {
 
 // app.listen(3000)
 
-https.createServer(options, app).listen(3000) // https
+// https.createServer(options, app).listen(3000) // https
 http.createServer(app).listen(3000) // http
 
 console.log('API ready.')
