@@ -5,16 +5,17 @@ const app = express()
 const keys = require('./.keys')
 const DarkSky = require('dark-sky')
 const NodeGeocoder = require('node-geocoder')
-const https = require('https'); // for https
-const http = require('http');
-const fs = require('fs'); // for https fs
 
-var options = {
-  // key: fs.readFileSync('/etc/letsencrypt/live/jasmin.engr.utk.edu/privkey.pem'),
-  // cert: fs.readFileSync('/etc/letsencrypt/live/jasmin.engr.utk.edu/fullchain.pem')
-  key: fs.readFileSync('key.pem'),
-  cert: fs.readFileSync('cert.pem')
-};
+// const https = require('https'); // for https
+// const http = require('http'); // for http
+// const fs = require('fs'); // for https fs
+
+// var options = {
+//   // key: fs.readFileSync('/etc/letsencrypt/live/jasmin.engr.utk.edu/privkey.pem'),
+//   // cert: fs.readFileSync('/etc/letsencrypt/live/jasmin.engr.utk.edu/fullchain.pem')
+//   key: fs.readFileSync('key.pem'),
+//   cert: fs.readFileSync('cert.pem')
+// };
 
 const limiter = new RateLimit({
   // 15 minutes
@@ -30,7 +31,7 @@ app.use(cors())
 
 // Home
 app.get('/', function (req, res) {
-  res.send('jasmin.engr.utk.edu')
+  res.send('Jasmin')
 })
 
 // DarkSky API
@@ -99,7 +100,9 @@ app.get('/geocode/v1/json', function (req, res) {
   }
 })
 
-// app.listen(3000)
-https.createServer(options, app).listen(3000) // https
-http.createServer(options, app).listen(3000) // https
+app.listen(3000)
+
+// https.createServer(options, app).listen(3000) // https
+// http.createServer(options, app).listen(3000) // http
+
 console.log('API ready.')
