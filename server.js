@@ -5,6 +5,13 @@ const app = express()
 const keys = require('./.keys')
 const DarkSky = require('dark-sky')
 const NodeGeocoder = require('node-geocoder')
+const https = require('https'); // for https
+const fs = require('fs'); // for https fs
+
+var options = {
+  key: fs.readFileSync('/etc/letsencrypt/live/jasmin.engr.utk.edu/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/jasmin.engr.utk.edu/fullchain.pem')
+};
 
 const limiter = new RateLimit({
   // 15 minutes
@@ -20,7 +27,7 @@ app.use(cors())
 
 // Home
 app.get('/', function (req, res) {
-  res.send('api.kmr.io')
+  res.send('jasmin.engr.utk.edu')
 })
 
 // DarkSky API
@@ -89,5 +96,6 @@ app.get('/geocode/v1/json', function (req, res) {
   }
 })
 
-app.listen(3000)
+// app.listen(3000)
+https.createServer(options, app).listen(3000) // https
 console.log('API ready.')
