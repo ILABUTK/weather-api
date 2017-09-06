@@ -11,10 +11,10 @@ const http = require('http'); // for http
 const fs = require('fs'); // for https fs
 
 var options = {
-  // key: fs.readFileSync('/etc/letsencrypt/live/jasmin.engr.utk.edu/privkey.pem'),
-  // cert: fs.readFileSync('/etc/letsencrypt/live/jasmin.engr.utk.edu/fullchain.pem')
-  key: fs.readFileSync('key.pem'),
-  cert: fs.readFileSync('cert.pem')
+  key: fs.readFileSync('/etc/letsencrypt/live/jasmin.engr.utk.edu/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/jasmin.engr.utk.edu/fullchain.pem')
+  // key: fs.readFileSync('key.pem'),
+  // cert: fs.readFileSync('cert.pem')
 };
 
 const limiter = new RateLimit({
@@ -100,9 +100,9 @@ app.get('/geocode/v1/json', function (req, res) {
   }
 })
 
-// app.listen(3000)
+// app.listen(3000) // working
 
-// https.createServer(options, app).listen(3000) // https
-http.createServer(app).listen(3000) // http
+https.createServer(options, app).listen(3000) // https
+http.createServer(app).listen(3000) // http working
 
 console.log('API ready.')
