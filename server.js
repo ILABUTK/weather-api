@@ -13,10 +13,10 @@ const fs = require('fs'); // for https fs
 var options = {
   // key: fs.readFileSync('/etc/letsencrypt/live/jasmin.engr.utk.edu/privkey.pem'),
   // cert: fs.readFileSync('/etc/letsencrypt/live/jasmin.engr.utk.edu/fullchain.pem')
-  // key: fs.readFileSync('/var/www/vhosts/jasmin/nodeserver/weather-api/key.pem'),
-  // cert: fs.readFileSync('/var/www/vhosts/jasmin/nodeserver/weather-api/cert.pem')
-  key: fs.readFileSync('key.pem'),
-  cert: fs.readFileSync('cert.pem')
+  key: fs.readFileSync('/var/www/vhosts/jasmin/nodeserver/weather-api/key.pem'),
+  cert: fs.readFileSync('/var/www/vhosts/jasmin/nodeserver/weather-api/cert.pem')
+  // key: fs.readFileSync('key.pem'),
+  // cert: fs.readFileSync('cert.pem')
 };
 
 const limiter = new RateLimit({
